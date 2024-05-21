@@ -11,6 +11,8 @@
              birthday,
              email,
              phone_no,
+             role,
+             created_at,
              gender)
         VALUES
             (#{userId},
@@ -19,6 +21,8 @@
              #{birthday},
              #{email},
              #{phoneNo},
+             #{role},
+             current_timestamp,
              #{gender})
     </insert>
 

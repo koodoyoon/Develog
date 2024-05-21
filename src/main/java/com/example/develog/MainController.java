@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainController {
 
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public MainController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/")
     public String main() {
@@ -33,7 +37,6 @@ public class MainController {
     public String join(@ModelAttribute UserDto dto) {
         try {
             userService.join(dto);
-
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,7 +1,19 @@
 package com.example.develog.user;
 
-public interface UserService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-    void join(UserDto dto) throws Exception;
+@Service
+public class UserService {
 
+    private final UserMapper userMapper;
+
+    @Autowired
+    public UserService(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+
+    public void join(UserDto dto) throws Exception {
+        userMapper.join(dto);
+    }
 }
